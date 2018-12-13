@@ -27,6 +27,9 @@ class App extends Component {
     this.closeAllMarkers();
     marker.isOpen=true;
     this.setState(({markers:Object.assign(this.state.markers,marker)}))
+    SquareAPI.venueDetails(marker.id).then((res)=>{
+        console.log(res);
+    })
   };
 
   componentDidMount(){
@@ -45,7 +48,8 @@ class App extends Component {
                 // To show info windows hidden by default
                 isOpen:false,
                 // To show markers if true
-                isVisible:true
+                isVisible:true,
+                id:venue.id
             }
         });
         this.setState({venues,center,markers});
