@@ -1,3 +1,4 @@
+/*global google*/
 import React,{Component} from "react"
 
 import { withScriptjs, withGoogleMap, GoogleMap, Marker,InfoWindow} from "react-google-maps"
@@ -25,6 +26,7 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
                         key={index}
                         position={{lat:marker.lat,lng:marker.lng}}
                         onClick={()=>props.handleMarkerClick(marker)}
+                        animation={arr.length===1?google.maps.Animation.BOUNCE:google.maps.Animation.DROP}
                     >
                         {marker.isOpen && venueInfo.bestPhoto &&
                         <InfoWindow>
