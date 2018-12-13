@@ -14,7 +14,14 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
         {props.markers &&
             props.markers
                 .filter(marker=>marker.isVisible)
-                .map((marker,index)=>(
+                .map((marker,index)=>{
+
+                 const venueInfo=props.venues.find((venue)=>{
+                     return venue.id===marker.id;
+                 });
+                 console.log(venueInfo);
+
+                 return(
                     <Marker
                         key={index}
                         position={{lat:marker.lat,lng:marker.lng}}
@@ -24,7 +31,7 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
                             <p>Hello</p>
                         </InfoWindow>}
                     </Marker>
-                ))
+                )})
         }
     </GoogleMap>
 ));

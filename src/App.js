@@ -30,11 +30,11 @@ class App extends Component {
     const venue=this.state.venues.find((venue)=>{
        return venue.id===marker.id;
     });
-    console.log(venue,"NEW VENUE");
+    // console.log(venue,"NEW VENUE");
     SquareAPI.venueDetails(marker.id).then((res)=>{
-        console.log(res);
+        // console.log(res);
         const newVenue=Object.assign(venue,res.response.venue);
-        console.log(newVenue,"new Venue");
+        // console.log(newVenue,"new Venue");
         this.setState({venues:Object.assign(this.state.venues,newVenue)});
     })
   };
