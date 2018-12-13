@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Map from './component/Map';
 import './App.css';
 import SquareAPI from "./API/index"
+import SideBar from './component/SideBar'
 
 class App extends Component {
 
@@ -11,7 +12,10 @@ class App extends Component {
           venues:[],
           markers:[],
           center:[],
-          zoom:12
+          zoom:12,
+          updateSuperState:(obj)=>{
+              this.setState(obj);
+          }
       };
   }
 
@@ -37,6 +41,14 @@ class App extends Component {
         // console.log(newVenue,"new Venue");
         this.setState({venues:Object.assign(this.state.venues,newVenue)});
     })
+  };
+
+  handleListItemClick=(venue)=>{
+    const marker=this.state.markers.find((marker)=>{
+       return marker.id===venue.id;
+    });
+    this.handleMarkerClick(marker);
+    console.log(venue);
   };
 
   componentDidMount(){
@@ -66,6 +78,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <SideBar {...this.state} handleListItemClick={this.handleListItemClick}/>
         <Map {...this.state}
          handleMarkerClick={this.handleMarkerClick}
         />

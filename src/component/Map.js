@@ -14,7 +14,7 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
         {props.markers &&
             props.markers
                 .filter(marker=>marker.isVisible)
-                .map((marker,index)=>{
+                .map((marker,index,arr)=>{
 
                  const venueInfo=props.venues.find((venue)=>{
                      return venue.id===marker.id;
@@ -47,7 +47,7 @@ class Map extends Component{
                 {...this.props}
                 googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBP7rV74uLMGdvy8rP17jnp2jVmJ9tXqkg"
                 loadingElement={<div style={{ height: `100%` }} />}
-                containerElement={<div style={{ height: `400px` }} />}
+                containerElement={<div style={{ height: `100%`,width:`75%` }} />}
                 mapElement={<div style={{ height: `100%` }} />}
             />
         )
