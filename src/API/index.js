@@ -5,8 +5,8 @@ class Helper{
     // client_id=blah&client_secret=blah&v=blah
     static auth(){
         const keys={
-            client_id:'UKEAXMUNOMTJMELYEET5IGZ0HTEIARIBDFDJ2R4OZAFXZRH4',
-            client_secret:'JERZPA51SVRMTOM3CYJGLZDQTUK5LXPIGR4LUELOY3QJAKCV',
+            client_id:'RJXDZ3NCXRVZO1CTXMNENSCCA1NWIGG5SV0DSAUGHAUZ2LMX',
+            client_secret:'YPFNNHKRYYOZOD4G4ISWOGRKXILJPYAFTSS5SEYQEIKEX03I',
             v:"20181213"
         };
         return Object.keys(keys)

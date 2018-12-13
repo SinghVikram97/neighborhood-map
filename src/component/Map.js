@@ -19,7 +19,6 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
                  const venueInfo=props.venues.find((venue)=>{
                      return venue.id===marker.id;
                  });
-                 console.log(venueInfo);
 
                  return(
                     <Marker
@@ -27,8 +26,12 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
                         position={{lat:marker.lat,lng:marker.lng}}
                         onClick={()=>props.handleMarkerClick(marker)}
                     >
-                        {marker.isOpen && <InfoWindow>
-                            <p>Hello</p>
+                        {marker.isOpen && venueInfo.bestPhoto &&
+                        <InfoWindow>
+                            <div>
+                                <img src={`${venueInfo.bestPhoto.prefix}200x200${venueInfo.bestPhoto.suffix}`}/>
+                                <p><strong>{venueInfo.name}</strong></p>
+                            </div>
                         </InfoWindow>}
                     </Marker>
                 )})
