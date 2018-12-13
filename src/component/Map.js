@@ -15,7 +15,11 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
             props.markers
                 .filter(marker=>marker.isVisible)
                 .map((marker,index)=>(
-                    <Marker key={index} position={{lat:marker.lat,lng:marker.lng}}>
+                    <Marker
+                        key={index}
+                        position={{lat:marker.lat,lng:marker.lng}}
+                        onClick={()=>props.handleMarkerClick(marker)}
+                    >
                         {marker.isOpen && <InfoWindow>
                             <p>Hello</p>
                         </InfoWindow>}
